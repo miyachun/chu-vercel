@@ -95,7 +95,7 @@ def database():
 
     a01 =mycursor.execute("SELECT * FROM abc")
     posts=a01.fetchall()
-    return render_template('db.html', posts=posts)
+    return render_template('db.html', posts=a01)
 
     rows = cursor.fetchall()
     #mycursor.close()
