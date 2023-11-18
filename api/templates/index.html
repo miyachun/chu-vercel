@@ -7,7 +7,7 @@
     {% for gAns in ansA[:] %}
        <td>{{gAns}}</td>
        {% endfor %}          
-       {% if ansA[1]=="晴時多雲" %}       
+       {% if ansA[1]=="晴時多雲" or ansA[1]=="多雲時晴" %}       
        <td><img src="{{ url_for('static', filename='uploads/b.jpg') }}" alt="" width="100px"></td>       
         {% endif %}
         {% if ansA[1]=="多雲" %}        
