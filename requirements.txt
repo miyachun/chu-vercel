@@ -1,4 +1,4 @@
 Flask
 Werkzeug
-sqlite3
+sqlite
 DateTime
