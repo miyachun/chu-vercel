@@ -90,7 +90,7 @@ def database():
 ''')
 
     nums = ((101, 'AA', 'aa@company.com'), (102, 'BB', 'bb@company.com'), (103, 'CC', 'cc@company.com'))
-    mycursor.executemany("INSERT INTO company (num) VALUES (%s)", nums)
+    mycursor.execute("INSERT INTO company (num) VALUES (%s)", nums)
 
 
     mycursor.execute("SELECT * FROM company")

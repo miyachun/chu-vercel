@@ -9,13 +9,15 @@
                   <td>Email</td>
 
                 </tr>
+                {% if posts!="" %}          
                 {% for post in posts %}   
                 <tr class="table-primary">
                   <td>{{post[0]}}</td>
                   <td>{{post[1]}}</td>
-                  <td>{{post[2]}}</td>               
-                           
-                </tr>
+                  <td>{{post[2]}}</td>              
+                          
+                </tr> 
+                 {% endif %}
                 {% endfor %}
               </table>
             </div>
