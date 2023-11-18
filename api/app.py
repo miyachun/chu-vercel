@@ -89,7 +89,7 @@ def dbview():
 
 @app.route('/dbcreate')
 def dbcreate():
-    conn = get_db_connection()
+    conn = get_db_connection()    
     mycursor = conn.cursor()
     mycursor.execute('''CREATE TABLE company(  
       id int,  
