@@ -89,12 +89,12 @@ def database():
 ''')
 
     mycursor.execute("SELECT * FROM employee")
-
+    posts=mycursor.fetchall()
     print(mycursor.fetchall())
 
-    mycursor.close()
-    mydb.close()
-    return render_template('db.html')
+    #mycursor.close()
+    #mydb.close()
+    return render_template('db.html',posts=posts)
 
 
 if __name__ == '__main__':
