@@ -75,27 +75,27 @@ def database():
 
     mydb.set_session(autocommit=True)
 
-    mycursor.execute('''CREATE TABLE employee(  
-      EmployeeID int,  
-      Name varchar(255),  
-      Email varchar(255));
+    mycursor.execute('''CREATE TABLE abc(  
+      id int,  
+      name varchar(255),  
+      email varchar(255));
 ''')
 
     mycursor.execute('''
-  INSERT INTO employee (EmployeeID, Name, Email) 
+  INSERT INTO abc (id, name, email) 
       VALUES (101, 'Mark', 'mark@company.com'),
              (102, 'Robert', 'robert@company.com'),
              (103, 'Spencer', 'spencer@company.com');
 ''')
 
-    posts =mycursor.execute("SELECT * FROM employee").fetchall()
-    
-    mycursor.close()
-    
+    postsa =mycursor.execute("SELECT * FROM abc")
+    posts=postsa.fetchall()
+    return render_template('db.html', posts=posts)
 
+    rows = cursor.fetchall()
     #mycursor.close()
     #mydb.close()
-    return render_template('db.html',posts=posts)
+    return render_template('db.html',posts=mycursor.fetchall())
 
 
 if __name__ == '__main__':
