@@ -1,1 +1,4 @@
 Flask
+Werkzeug
+sqlite3
+DateTime

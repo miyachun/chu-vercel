@@ -3,12 +3,31 @@ from flask import Flask, render_template,redirect, request
 import json,urllib.request
 from itertools import zip_longest
 import os
+import sqlite3
+import datetime
+from werkzeug.utils import secure_filename
+
 app = Flask(__name__)
 
 url = os.environ.get('WEATHER_API')
-
-@app.route('/', methods=('GET', 'POST'))
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+upload_folder = os.path.join('static', 'uploads') 
+app.config['UPLOAD'] = upload_folder
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+Mnow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+@app.route('/')
 def index():
+    conn = get_db_connection()
+    posts = conn.execute('SELECT * FROM COMPANY ORDER BY time DESC').fetchall()
+    conn.close()
+    return render_template('index.html', posts=posts)
+
+@app.route('/index00', methods=('GET', 'POST'))
+def index00():
     ansA=[]
     ansAll = {}
     Anscity = []
