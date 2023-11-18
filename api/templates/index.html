@@ -4,9 +4,13 @@
   <div>
     {% for gAns in ansA[:] %}
        <td>{{gAns}}</td>
-       {% endfor %}
- 
-  </div>
+       {% endfor %}       
+       <td><img src="{{ url_for('static', filename='uploads/a.jpg') }}" alt="" width="100px"></td>
+  
+       {% for gAns01 in ansA[1] %}
+       <td>{{gAns01}}</td>
+       {% endfor %} 
+      </div>
   <div>
     <form method="POST" action="/">
 
@@ -18,7 +22,7 @@
             </select>
             <input type="submit" value ="Submit">
           </form>
-          <img src="{{ url_for('static', filename='uploads/a.jpg') }}" alt="" width="100px">
+         
 </div>
     <table>
         {% for key, value in ansAll.items() %}
