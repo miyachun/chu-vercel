@@ -14,6 +14,7 @@ app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 upload_folder = os.path.join('static', 'uploads') 
 app.config['UPLOAD'] = upload_folder
+
 def get_db_connection():
     mydb = psycopg2.connect(
     host=os.environ.get("POSTGRES_HOST"),
@@ -81,7 +82,22 @@ def index():
 def database():
     conn = get_db_connection()
     mycursor = conn.cursor()
-    mycursor.execute("SELECT * FROM abc")
+
+    mycursor.execute('''CREATE TABLE company(  
+      id int,  
+      name varchar(255),  
+      email varchar(255));
+''')
+
+    mycursor.execute('''
+  INSERT INTO abc (id, name, email) 
+      VALUES (101, 'Mark', 'mark@company.com'),
+             (102, 'Robert', 'robert@company.com'),
+             (103, 'Spencer', 'spencer@company.com');
+''')
+
+
+    mycursor.execute("SELECT * FROM company")
     results=mycursor.fetchall()
     conn.close()
     return render_template('db.html', posts=results)
