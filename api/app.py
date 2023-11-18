@@ -94,7 +94,7 @@ def database():
 
     #mycursor.close()
     #mydb.close()
-    return render_template('db.html',posts=posts)
+    return render_template('db.html',posts=mycursor.fetchall())
 
 
 if __name__ == '__main__':
