@@ -65,10 +65,10 @@ def index():
 @app.route('/database', methods=('GET', 'POST'))
 def database():
     mydb = psycopg2.connect(
-    host=os.environ.get("localhost"),
-    user=os.environ.get("yourUsername"),
-    password=os.environ.get("yourPassword"),
-    database=os.environ.get("company")
+    host=os.environ.get("POSTGRES_HOST"),
+    user=os.environ.get("POSTGRES_USER"),
+    password=os.environ.get("POSTGRES_PASSWORD"),
+    database=os.environ.get("POSTGRES_DATABASE")
 )
 
     mycursor = mydb.cursor()
