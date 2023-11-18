@@ -85,7 +85,7 @@ def dbview():
     mycursor.execute("SELECT * FROM company")
     results=mycursor.fetchall()
     conn.close()
-    return render_template('db.html', posts=results)
+    return render_template('dbview.html', posts=results)
 
 @app.route('/dbcreate')
 def dbcreate():
