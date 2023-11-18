@@ -83,16 +83,6 @@ def database():
     conn = get_db_connection()
     mycursor = conn.cursor()
 
-
-
-    mycursor.execute('''
-    INSERT INTO company (id, name, email) 
-      VALUES (101, 'Mark', 'mark@company.com'),
-             (102, 'Robert', 'robert@company.com'),
-             (103, 'Spencer', 'spencer@company.com');
-''')
-
-
     mycursor.execute("SELECT * FROM company")
     results=mycursor.fetchall()
     conn.close()
