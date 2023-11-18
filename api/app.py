@@ -78,15 +78,41 @@ def index():
    
     return render_template('index.html',ansAll=ansAll,ansA=ansA,ansCity=ansCity)
 
-@app.route('/database')
-def database():
+@app.route('/dbview')
+def dbview():
     conn = get_db_connection()
     mycursor = conn.cursor()
-
     mycursor.execute("SELECT * FROM company")
     results=mycursor.fetchall()
     conn.close()
     return render_template('db.html', posts=results)
+
+@app.route('/dbcreate')
+def dbcreate():
+    conn = get_db_connection()
+    mycursor = conn.cursor()
+    mycursor.execute('''CREATE TABLE company(  
+      id int,  
+      name varchar(255),  
+      email varchar(255));
+''')
+    
+    conn.close()
+    return render_template('db.html')
+
+@app.route('/dbadd')
+def dbadd():
+    conn = get_db_connection()
+    mycursor = conn.cursor()
+    mycursor.execute('''
+  INSERT INTO company (id, name, email) 
+      VALUES (101, 'Mark', 'mark@company.com'),
+             (102, 'Robert', 'robert@company.com'),
+             (103, 'Spencer', 'spencer@company.com');
+''')
+    
+    conn.close()
+    return render_template('db.html')
 
 
 if __name__ == '__main__':
