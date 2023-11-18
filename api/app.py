@@ -20,7 +20,7 @@ def get_db_connection():
     user=os.environ.get("POSTGRES_USER"),
     password=os.environ.get("POSTGRES_PASSWORD"),
     database=os.environ.get("POSTGRES_DATABASE"))
-    return db
+    return mydb
 
 
 
@@ -94,8 +94,8 @@ def database():
 
 
 
-    postsa =mycursor.execute("SELECT * FROM abc")
-    posts=postsa.fetchall()
+    a01 =mycursor.execute("SELECT * FROM abc")
+    posts=a01.fetchall()
     return render_template('db.html', posts=posts)
 
     rows = cursor.fetchall()
