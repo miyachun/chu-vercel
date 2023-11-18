@@ -81,17 +81,10 @@ def index():
 def database():
     conn = get_db_connection()
     mycursor = conn.cursor()
-
-
-
     mycursor.execute("SELECT * FROM abc")
     results=mycursor.fetchall()
+    conn.close()
     return render_template('db.html', posts=results)
-
-    rows = cursor.fetchall()
-    #mycursor.close()
-    #mydb.close()
-    return render_template('db.html',posts=mycursor.fetchall())
 
 
 if __name__ == '__main__':
