@@ -62,10 +62,10 @@ def index():
 @app.route('/database', methods=('GET', 'POST'))
 def database():
     mydb = psycopg2.connect(
-  host="localhost",
-  user="yourUsername",
-  password="yourPassword",
-  database="company"
+  host=os.environ.get("localhost"),
+  user=os.environ.get("yourUsername"),
+  password=os.environ.get("yourPassword"),
+  database=os.environ.get("company")
 )
 
     mycursor = mydb.cursor()
@@ -91,6 +91,7 @@ def database():
 
     mycursor.close()
     mydb.close()
+    return render_template('db.html')
 
 
 if __name__ == '__main__':
