@@ -93,9 +93,9 @@ def database():
 
 
 
-    a01 =mycursor.execute("SELECT * FROM abc")
-    posts=a01.fetchall()
-    return render_template('db.html', posts=a01)
+    mycursor.execute("SELECT * FROM abc")
+    results=mycursor.fetchall()
+    return render_template('db.html', posts=results)
 
     rows = cursor.fetchall()
     #mycursor.close()
@@ -104,4 +104,4 @@ def database():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
