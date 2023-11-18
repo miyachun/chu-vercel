@@ -7,17 +7,13 @@
                   <td>編號</td>
                   <td>姓名</td>
                   <td>Email</td>
-
-                </tr>
-                        
+                </tr>                        
                 {% for post in posts %}   
                 <tr class="table-primary">
                   <td>{{post[0]}}</td>
                   <td>{{post[1]}}</td>
-                  <td>{{post[2]}}</td>              
-                          
-                </tr> 
-                
+                  <td>{{post[2]}}</td>
+                </tr>                 
                 {% endfor %}
               </table>
             </div>

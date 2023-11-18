@@ -2,18 +2,11 @@ from flask import Flask, render_template,request
 import json,urllib.request
 from itertools import zip_longest
 import os
-from http.server import BaseHTTPRequestHandler
-from urllib import parse
 import psycopg2
 
 app = Flask(__name__)
 
 url = os.environ.get('WEATHER_API')
-
-app.secret_key = 'super secret key'
-app.config['SESSION_TYPE'] = 'filesystem'
-upload_folder = os.path.join('static', 'uploads') 
-app.config['UPLOAD'] = upload_folder
 
 def get_db_connection():
     mydb = psycopg2.connect(
@@ -52,9 +45,6 @@ def index():
                 ansA.append(wx)
                 ansA.append(mintT)
                 ansA.append(maxtT)
-    
-        #render_template('index.html',ansAll=ansAll,ansA=ansA,ansCity=ansCity)
- 
        
     data = urllib.request.urlopen(url).read()
     output = json.loads(data)
