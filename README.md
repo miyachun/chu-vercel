@@ -1,4 +1,3 @@
-vercel
 https://chu-vercel.vercel.app/  
   
 weather info F-C0032-001  
