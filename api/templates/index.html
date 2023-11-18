@@ -5,15 +5,17 @@
     {% for gAns in ansA[:] %}
        <td>{{gAns}}</td>
        {% endfor %}       
-       
-  
-       
-       <td>a:{{ansA[1]}}</td>
-    
+        
+       <td>狀況:{{ansA[1]}}</td>    
       
        {% if ansA[1]=="晴時多雲" %}
-       <div> 晴 時 多 雲 </div>       
+       <td> 晴 時 多 雲 </td>
+       <td><img src="{{ url_for('static', filename='uploads/b.jpg') }}" alt="" width="100px"></td>       
         {% endif %}
+        {% if ansA[1]=="多雲" %}
+        <td> 多 雲 </td>
+        <td><img src="{{ url_for('static', filename='uploads/c.jpg') }}" alt="" width="100px"></td>       
+         {% endif %}
       </div>
   <div>
     <form method="POST" action="/">
@@ -28,7 +30,7 @@
           </form>
          
 </div>
-<td><img src="{{ url_for('static', filename='uploads/a.jpg') }}" alt="" width="100px"></td>
+
     <table>
         {% for key, value in ansAll.items() %}
         <tr>
