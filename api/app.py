@@ -15,7 +15,7 @@ app.config['UPLOAD'] = upload_folder
 
 Mnow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-@app.route('/index', methods=('GET', 'POST'))
+@app.route('/', methods=('GET', 'POST'))
 def index():
     ansA=[]
     ansAll = {}
