@@ -88,13 +88,14 @@ def database():
              (103, 'Spencer', 'spencer@company.com');
 ''')
 
-    mycursor.execute("SELECT * FROM employee")
-    posts=mycursor.fetchall()
-    print(mycursor.fetchall())
+    posts =mycursor.execute("SELECT * FROM employee").fetchall()
+    
+    mycursor.close()
+    
 
     #mycursor.close()
     #mydb.close()
-    return render_template('db.html',posts=mycursor.fetchall())
+    return render_template('db.html',posts=posts)
 
 
 if __name__ == '__main__':
