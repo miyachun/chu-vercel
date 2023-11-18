@@ -10,6 +10,20 @@ app = Flask(__name__)
 
 url = os.environ.get('WEATHER_API')
 
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+upload_folder = os.path.join('static', 'uploads') 
+app.config['UPLOAD'] = upload_folder
+def get_db_connection():
+    mydb = psycopg2.connect(
+    host=os.environ.get("POSTGRES_HOST"),
+    user=os.environ.get("POSTGRES_USER"),
+    password=os.environ.get("POSTGRES_PASSWORD"),
+    database=os.environ.get("POSTGRES_DATABASE"))
+    return db
+
+
+
 @app.route('/', methods=('GET', 'POST'))
 def index():
     ansA=[]
@@ -75,18 +89,10 @@ def database():
 
     mydb.set_session(autocommit=True)
 
-    mycursor.execute('''CREATE TABLE abc(  
-      id int,  
-      name varchar(255),  
-      email varchar(255));
-''')
 
-    mycursor.execute('''
-  INSERT INTO abc (id, name, email) 
-      VALUES (101, 'Mark', 'mark@company.com'),
-             (102, 'Robert', 'robert@company.com'),
-             (103, 'Spencer', 'spencer@company.com');
-''')
+
+
+
 
     postsa =mycursor.execute("SELECT * FROM abc")
     posts=postsa.fetchall()
