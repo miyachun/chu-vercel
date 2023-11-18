@@ -20,6 +20,7 @@ def get_db_connection():
     user=os.environ.get("POSTGRES_USER"),
     password=os.environ.get("POSTGRES_PASSWORD"),
     database=os.environ.get("POSTGRES_DATABASE"))
+    mydb.set_session(autocommit=True)
     return mydb
 
 
@@ -78,18 +79,8 @@ def index():
 
 @app.route('/database')
 def database():
-    mydb = psycopg2.connect(
-    host=os.environ.get("POSTGRES_HOST"),
-    user=os.environ.get("POSTGRES_USER"),
-    password=os.environ.get("POSTGRES_PASSWORD"),
-    database=os.environ.get("POSTGRES_DATABASE"))
-
-    mycursor = mydb.cursor()
-
-    mydb.set_session(autocommit=True)
-
-
-
+    conn = get_db_connection()
+    mycursor = conn.cursor()
 
 
 
