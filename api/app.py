@@ -91,7 +91,7 @@ def dbview():
 def dbcreate():
     conn = get_db_connection()    
     mycursor = conn.cursor()
-    mycursor.execute('''CREATE TABLE company(  
+    mycursor.execute('''CREATE TABLE IF NOT EXISTS company(  
       id int,  
       name varchar(255),  
       email varchar(255));
