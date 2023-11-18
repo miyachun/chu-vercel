@@ -2,7 +2,10 @@ from flask import Flask, render_template,request
 import json,urllib.request
 from itertools import zip_longest
 import os
+from http.server import BaseHTTPRequestHandler
+from urllib import parse
 import psycopg2
+
 app = Flask(__name__)
 
 url = os.environ.get('WEATHER_API')
@@ -62,10 +65,10 @@ def index():
 @app.route('/database', methods=('GET', 'POST'))
 def database():
     mydb = psycopg2.connect(
-  host=os.environ.get("localhost"),
-  user=os.environ.get("yourUsername"),
-  password=os.environ.get("yourPassword"),
-  database=os.environ.get("company")
+    host=os.environ.get("localhost"),
+    user=os.environ.get("yourUsername"),
+    password=os.environ.get("yourPassword"),
+    database=os.environ.get("company")
 )
 
     mycursor = mydb.cursor()
