@@ -90,10 +90,10 @@ def database():
 ''')
 
     mycursor.execute('''
-  INSERT INTO abc (id, name, email) 
-      VALUES (101, 'Mark', 'mark@company.com'),
-             (102, 'Robert', 'robert@company.com'),
-             (103, 'Spencer', 'spencer@company.com');
+  INSERT INTO company (id, name, email) 
+      VALUES (101, 'AA', 'aa@company.com'),
+             (102, 'BB', 'bb@company.com'),
+             (103, 'CC', 'cc@company.com');
 ''')
 
 
