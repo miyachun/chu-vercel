@@ -98,7 +98,7 @@ def dbcreate():
 ''')
     
     conn.close()
-    return render_template('db.html')
+    return render_template('dbcreate.html')
 
 @app.route('/dbadd')
 def dbadd():
@@ -112,7 +112,7 @@ def dbadd():
 ''')
     
     conn.close()
-    return render_template('db.html')
+    return render_template('dbadd.html')
 
 
 if __name__ == '__main__':
