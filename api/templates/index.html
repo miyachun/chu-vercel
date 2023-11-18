@@ -6,8 +6,7 @@
       <tr>
     {% for gAns in ansA[:] %}
        <td>{{gAns}}</td>
-       {% endfor %}
-       <td>情形:{{ansA[1]}}</td>     
+       {% endfor %}          
        {% if ansA[1]=="晴時多雲" %}       
        <td><img src="{{ url_for('static', filename='uploads/b.jpg') }}" alt="" width="100px"></td>       
         {% endif %}
