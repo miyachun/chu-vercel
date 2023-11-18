@@ -2,24 +2,23 @@
 {% block content %}
 <div class="container">
   <div>
+    <table>
+      <tr>
     {% for gAns in ansA[:] %}
        <td>{{gAns}}</td>
-       {% endfor %}       
-        
-       <td>狀況:{{ansA[1]}}</td>    
-      
-       {% if ansA[1]=="晴時多雲" %}
-       <td> 晴 時 多 雲 </td>
+       {% endfor %}
+       <td>情形:{{ansA[1]}}</td>     
+       {% if ansA[1]=="晴時多雲" %}       
        <td><img src="{{ url_for('static', filename='uploads/b.jpg') }}" alt="" width="100px"></td>       
         {% endif %}
-        {% if ansA[1]=="多雲" %}
-        <td> 多 雲 </td>
+        {% if ansA[1]=="多雲" %}        
         <td><img src="{{ url_for('static', filename='uploads/c.jpg') }}" alt="" width="100px"></td>       
-         {% endif %}
-      </div>
+        {% endif %}
+      </tr>
+    </table>
+        </div>
   <div>
     <form method="POST" action="/">
-
       <select name="Gcity" method="GET" action="/">
           <option  selected></option>
           {% for d in ansCity[:] %}
@@ -27,10 +26,8 @@
           {% endfor %}
             </select>
             <input type="submit" value ="Submit">
-          </form>
-         
+          </form>         
 </div>
-
     <table>
         {% for key, value in ansAll.items() %}
         <tr>
@@ -41,7 +38,5 @@
         </tr>
         {% endfor %}  
       </table>
-
-    </div>
-  
+    </div>  
     {% endblock %}
