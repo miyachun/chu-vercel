@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Opendata Template</title>
-<style>
-
-td{    
-    width: 80px;
-}
-
-div{
- margin-top: 20px;
- margin-bottom: 20px;
-}
-
-#content{
- width: 1000px;
- margin-left: auto;
- margin-right: auto;
-}
-</style>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
   <div>
     {% for gAns in ansA[:] %}
        <td>{{gAns}}</td>
@@ -51,7 +31,6 @@ div{
         {% endfor %}  
       </table>
 
-
+    </div>
   
-</body>
-</html>
+    {% endblock %}
