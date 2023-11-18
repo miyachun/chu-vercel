@@ -76,14 +76,13 @@ def index():
    
     return render_template('index.html',ansAll=ansAll,ansA=ansA,ansCity=ansCity)
 
-@app.route('/database', methods=('GET', 'POST'))
+@app.route('/database')
 def database():
     mydb = psycopg2.connect(
     host=os.environ.get("POSTGRES_HOST"),
     user=os.environ.get("POSTGRES_USER"),
     password=os.environ.get("POSTGRES_PASSWORD"),
-    database=os.environ.get("POSTGRES_DATABASE")
-)
+    database=os.environ.get("POSTGRES_DATABASE"))
 
     mycursor = mydb.cursor()
 
