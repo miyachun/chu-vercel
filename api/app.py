@@ -53,7 +53,7 @@ def index():
                 ansA.append(mintT)
                 ansA.append(maxtT)
     
-        render_template('index.html',ansAll=ansAll,ansA=ansA,ansCity=ansCity)
+        #render_template('index.html',ansAll=ansAll,ansA=ansA,ansCity=ansCity)
  
        
     data = urllib.request.urlopen(url).read()
