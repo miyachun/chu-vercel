@@ -83,14 +83,14 @@ def database():
     conn = get_db_connection()
     mycursor = conn.cursor()
 
-    mycursor.execute('''CREATE TABLE company(  
-      id int,  
-      name varchar(255),  
-      email varchar(255));
-''')
 
-    nums = ((101, 'AA', 'aa@company.com'), (102, 'BB', 'bb@company.com'), (103, 'CC', 'cc@company.com'))
-    mycursor.execute("INSERT INTO company (num) VALUES (%s)", nums)
+
+    mycursor.execute('''
+    INSERT INTO company (id, name, email) 
+      VALUES (101, 'Mark', 'mark@company.com'),
+             (102, 'Robert', 'robert@company.com'),
+             (103, 'Spencer', 'spencer@company.com');
+''')
 
 
     mycursor.execute("SELECT * FROM company")
